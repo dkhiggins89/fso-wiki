@@ -1,0 +1,71 @@
+/* First Star Online Wiki: OSRS-wiki-like layout in the game's own palette (dark header, parchment pages, gold Cinzel). */
+@font-face { font-family: "Cinzel"; src: url("fonts/Cinzel-Variable.ttf"); font-weight: 400 900; }
+@font-face { font-family: "Alegreya Sans"; src: url("fonts/AlegreyaSans-Medium.ttf"); font-weight: 500; }
+@font-face { font-family: "Alegreya Sans"; src: url("fonts/AlegreyaSans-Bold.ttf"); font-weight: 700; }
+:root {
+  --bg: #e9dcbc; --page: #f6edd6; --ink: #2f2214; --dim: #6f5a3e; --gold: #8f5a12; --line: #c9b289;
+  --head: #1a1712; --head-ink: #f3e8d0; --accent: #d9b46a; --nav: #efe3c4; --link: #7a3d0c; --link-hover: #b4561a;
+  --table-head: #dccaa0; --row: #f1e6cc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171b; --page: #1d2126; --ink: #ece2cc; --dim: #b4a78c; --gold: #e2bd72; --line: #3a3f46;
+    --head: #0e1013; --head-ink: #f3e8d0; --accent: #d9b46a; --nav: #1a1d22; --link: #e6b46a; --link-hover: #ffd28a;
+    --table-head: #2a2f36; --row: #22262b;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 500 16px/1.5 "Alegreya Sans", Georgia, serif; }
+a { color: var(--link); text-decoration: none; } a:hover { color: var(--link-hover); text-decoration: underline; }
+header { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 24px; padding: 10px 20px;
+  background: var(--head); border-bottom: 2px solid var(--accent); }
+.logo { font: 800 22px "Cinzel", serif; color: var(--accent); letter-spacing: 1px; white-space: nowrap; }
+.logo span { color: var(--head-ink); font-weight: 500; }
+.searchbox { position: relative; flex: 1; max-width: 520px; }
+#search { width: 100%; padding: 8px 12px; border-radius: 6px; border: 1px solid #5a4a30; background: #26221b; color: #f3e8d0; font: inherit; }
+#results { position: absolute; left: 0; right: 0; top: 40px; background: var(--page); border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35); display: none; max-height: 60vh; overflow: auto; }
+#results a { display: block; padding: 6px 12px; } #results a span { color: var(--dim); font-size: 13px; margin-left: 6px; }
+#results a.sel, #results a:hover { background: var(--table-head); text-decoration: none; }
+.wrap { display: flex; max-width: 1400px; margin: 0 auto; }
+nav { width: 190px; flex: none; padding: 18px 10px; }
+nav ul { list-style: none; margin: 0; padding: 0; } nav li a { display: block; padding: 5px 10px; border-radius: 4px; }
+nav li a:hover { background: var(--nav); text-decoration: none; }
+main { flex: 1; min-width: 0; background: var(--page); border: 1px solid var(--line); border-top: 0; padding: 18px 28px 30px; min-height: 90vh; }
+h1 { font: 700 30px "Cinzel", serif; color: var(--gold); margin: 6px 0 14px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+h2 { font: 700 21px "Cinzel", serif; color: var(--gold); border-bottom: 1px solid var(--line); margin: 26px 0 10px; padding-bottom: 3px; }
+h3 { font: 700 17px "Cinzel", serif; color: var(--gold); }
+.crumbs { font-size: 13px; color: var(--dim); }
+.muted { color: var(--dim); } .examine { font-style: italic; color: var(--dim); }
+.quote { border-left: 3px solid var(--accent); margin: 6px 0; padding: 2px 12px; font-style: italic; }
+.note { background: var(--row); border: 1px solid var(--line); border-left: 4px solid var(--accent); padding: 8px 12px; margin: 10px 0; }
+code { background: var(--row); padding: 1px 5px; border-radius: 3px; font-size: 14px; }
+.wikitable { border-collapse: collapse; margin: 10px 0 16px; min-width: 50%; }
+.wikitable th, .wikitable td { border: 1px solid var(--line); padding: 5px 10px; text-align: left; vertical-align: middle; }
+.wikitable th { background: var(--table-head); font-weight: 700; cursor: default; }
+.wikitable.sortable th { cursor: pointer; } .wikitable tr:nth-child(even) td { background: var(--row); }
+img.ic { vertical-align: middle; object-fit: contain; margin-right: 4px; }
+.infobox { float: right; width: 300px; margin: 0 0 16px 20px; border: 1px solid var(--line); background: var(--row); border-radius: 4px; }
+.ibtitle { background: var(--head); color: var(--accent); font: 700 17px "Cinzel", serif; text-align: center; padding: 8px; }
+.ibimg { text-align: center; padding: 12px; background: var(--page); border-bottom: 1px solid var(--line); }
+.ibimg img { max-width: 100%; max-height: 260px; }
+.infobox table { width: 100%; border-collapse: collapse; } .infobox th, .infobox td { padding: 5px 10px; border-top: 1px solid var(--line); text-align: left; font-size: 15px; }
+.infobox th { width: 40%; color: var(--dim); }
+.portals { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 16px 0; }
+.portal { display: block; padding: 14px; text-align: center; background: var(--head); color: var(--accent); border: 1px solid #5a4a30; border-radius: 6px; font-family: "Cinzel", serif; }
+.portal:hover { color: #fff3d2; text-decoration: none; border-color: var(--accent); }
+ul.cols { columns: 3 200px; }
+.filter { padding: 6px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--page); color: var(--ink); font: inherit; width: 280px; }
+.mapshot { max-width: 100%; width: 544px; border: 1px solid var(--line); image-rendering: auto; }
+.worldmap img { max-width: 100%; border: 1px solid var(--line); }
+.el { font-weight: 700; } .el-fire { color: #c4501c; } .el-water { color: #2f6ab8; } .el-wind { color: #2f8a58; }
+.el-earth { color: #8a6230; } .el-light { color: #a08410; } .el-shadow { color: #7048a0; }
+footer { clear: both; margin-top: 40px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 13px; color: var(--dim); }
+@media (max-width: 800px) {
+  .wrap { display: block; } nav { width: auto; padding: 6px 16px; } nav ul { display: flex; flex-wrap: wrap; gap: 4px; }
+  main { padding: 14px 16px; } .infobox { float: none; width: auto; margin: 0 0 16px; }
+  header { flex-wrap: wrap; gap: 8px; padding: 8px 16px; } .searchbox { max-width: none; min-width: 100%; }
+  .wikitable { display: block; overflow-x: auto; }
+}
+/* Regions section (25 October 2026): the "Not yet live" banner on a region that is not in this world yet */
+.notice { background: var(--row); border-left: 4px solid var(--accent); padding: 8px 12px; border-radius: 4px; }

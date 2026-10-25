@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Building a house interior - First Star Online Wiki</title><link rel="stylesheet" href="../wiki.css"></head><body>
+<header><a class="logo" href="../index.html">First Star Online <span>Wiki</span></a>
+<div class="searchbox"><input id="search" type="search" placeholder="Search the wiki" autocomplete="off"><div id="results"></div></div></header>
+<div class="wrap"><nav><ul><li><a href="../index.html">Main page</a></li><li><a href="../updates/index.html">Updates</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../regions/index.html">Regions</a></li><li><a href="../quests/index.html">Quests</a></li><li><a href="../skills/index.html">Skills</a></li><li><a href="../items/index.html">Items</a></li><li><a href="../monsters/index.html">Monsters</a></li><li><a href="../beasts/index.html">Beasts</a></li><li><a href="../npcs/index.html">NPCs</a></li><li><a href="../locations/index.html">Locations</a></li><li><a href="../spells/index.html">Spells</a></li><li><a href="../classes/index.html">Classes</a></li><li><a href="../about/index.html">About</a></li></ul></nav><main><div class="crumbs"><a href="../index.html">Main page</a> › <a href="../guides/index.html">Guides</a></div><h1>Building a house interior</h1><p>In the map editor (F10):</p>
+<ol><li>Paint a door on the house front (the Paint tab), or use a building prefab that has one.</li><li>Open the <b>Links</b> tab. Choose the kind <b>Door</b>, give it a name if you like (shown when players point at it), and</li></ol>
+<p>set <b>Other end</b> to <b>a new isolated area</b>.</p>
+<ol><li>In <b>Areas</b>, pick a <b>House interior</b> style: small house, cottage, large house, shop, farmhouse, hall or great</li></ol>
+<p>hall. Each is a ready-made room with walls, floor and furniture.</p>
+<ol><li>Pick the <b>Link</b> tool and click the door.</li></ol>
+<p>The room is created, the door leads into it, and the doorway at the bottom of the room leads back out, all in one click. You arrive inside, ready to decorate.</p>
+<p>For other kinds of area (a dungeon, a cave, a plain room) the Link tool takes you to the new area and waits for you to click where the way back should be.</p>
+<h3 id="making-the-room-first">Making the room first</h3>
+<p>You can also make the room first: in <b>Areas</b>, pick a House interior style and press <b>Create and go there</b>. You arrive in the new room and its doorway is already the first end of a door link (the Link tool is picked for you). Go back to the house (Jump to map) and click its door with the Link tool. The door and the doorway are joined both ways.</p>
+<p>If a room was made earlier without links, join it the same way: with the Link tool, click the room&#x27;s doorway, then the door outside.</p>
+<h3 id="moving-a-link">Moving a link</h3>
+<p>Right click a link and choose <b>Move this link</b>, then click its new tile on the same map. It keeps where it leads, and the way back is pointed beside the new tile, so you can move a door without breaking the way out. Esc cancels; Ctrl+Z undoes it.</p>
+<h3 id="the-town-s-own-buildings">The town&#x27;s own buildings</h3>
+<p>The rooms behind Astraeth&#x27;s own doors (cottages, forge, inn, chapel and the castle&#x27;s great hall) are made by the world tools (<code>tools/world/interiors.py</code>), not by hand. Each is a separate small area with one way out at the bottom of the room, linked to its door outside.</p>
+<footer>Generated from <b>Astraeth</b> (revision 8c28ff719241) on 2026-10-25. Game facts come from the game itself; see <a href="../about/index.html">About this wiki</a>.</footer></main></div>
+<script>window.WIKI_ROOT="../";</script><script src="../search-index.js"></script><script src="../search.js"></script></body></html>
