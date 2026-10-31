@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Making NPCs move - First Star Online Wiki</title><link rel="stylesheet" href="../wiki.css"></head><body>
+<header><a class="logo" href="../index.html">First Star Online <span>Wiki</span></a>
+<div class="searchbox"><input id="search" type="search" placeholder="Search the wiki" autocomplete="off"><div id="results"></div></div></header>
+<div class="wrap"><nav><ul><li><a href="../index.html">Main page</a></li><li><a href="../updates/index.html">Updates</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../regions/index.html">Regions</a></li><li><a href="../quests/index.html">Quests</a></li><li><a href="../skills/index.html">Skills</a></li><li><a href="../items/index.html">Items</a></li><li><a href="../monsters/index.html">Monsters</a></li><li><a href="../beasts/index.html">Beasts</a></li><li><a href="../npcs/index.html">NPCs</a></li><li><a href="../locations/index.html">Locations</a></li><li><a href="../spells/index.html">Spells</a></li><li><a href="../classes/index.html">Classes</a></li><li><a href="../about/index.html">About</a></li></ul></nav><main><div class="crumbs"><a href="../index.html">Main page</a> › <a href="../guides/index.html">Guides</a></div><h1>Making NPCs move</h1><p>In the map editor (F10), right click a placed NPC and choose <b>Edit NPC &lt;name&gt;...</b>. The box <b>This &lt;name&gt; at &lt;map&gt; x, y</b> holds the settings for that one placement. The same NPC placed somewhere else keeps its own settings.</p>
+<p><b>Faces</b> is the way it looks: South, East, North or West. Next to it, choose what it does:</p>
+<table class="wikitable"><tr><th>Choice</th><th>What it does</th><th>Settings</th></tr><tr><td>Stands still</td><td>Stays on its cell, facing the way chosen.</td><td>None</td></tr><tr><td>Turns on the spot</td><td>Stays on its cell and turns now and then.</td><td><b>Turns to</b>: tick at least two directions. <b>every</b>: about how many seconds between turns (a little sooner or later each time).</td></tr><tr><td>Walks a set path</td><td>Walks to each waypoint in turn, finding its own way round walls.</td><td><b>Draw path on the map</b>, <b>Go round</b> (else it walks back the same way), <b>wait at each point</b> in seconds.</td></tr><tr><td>Wanders freely</td><td>Steps about at random, pausing 2 to 6 seconds between steps.</td><td><b>Wanders up to</b>: how many cells it may stray from where it is placed.</td></tr></table>
+<p>Press <b>Save NPC</b> to keep the settings. A south-facing NPC that stands still is saved exactly as NPCs always were.</p>
+<h3 id="drawing-a-path">Drawing a path</h3>
+<ol><li>Choose <b>Walks a set path</b> and press <b>Draw path on the map</b>. The editor window steps aside.</li><li>Click the cells the NPC should walk to, in order. Its own cell is the start, so do not click it. Each point gets a</li></ol>
+<p>number and a line from the one before.</p>
+<ol><li>Right click or Backspace removes the last point. <b>Enter</b> finishes and <b>Esc</b> cancels.</li><li>Press <b>Save NPC</b>.</li></ol>
+<p>Waypoints must be on the NPC&#x27;s own map and on walkable ground. You only need the corners: the NPC finds its own way between points. With the editor open you can see the routes of the map&#x27;s walking NPCs as faint blue lines, and how far each wanderer may go as a green circle.</p>
+<h3 id="good-to-know">Good to know</h3>
+<ul><li>Walking NPCs wait rather than walk through players, monsters, objects or other NPCs.</li><li>Wanderers keep off the map edge (where players cross to the next map) and never step next to another NPC, so they</li></ul>
+<p>never stand in front of a shop counter.</p>
+<ul><li>The towns&#x27; NPCs were given states by role with <code>tools/world/set_npc_states.py</code>, which leaves alone any NPC that</li></ul>
+<p>already has a facing or a behaviour. Change any of them in the editor as you like.</p>
+<ul><li>Wanderers never stand on a door or map exit, or on the cell in front of one. A route goes through a door cell only</li></ul>
+<p>if you made that cell a waypoint.</p>
+<ul><li>Every NPC turns to face a player who talks to it and holds still while they talk, then carries on.</li><li>Quests, shops, banking, bounties and the other NPC services work wherever the NPC is standing. The player only has</li></ul>
+<p>to be next to it, as before.</p>
+<ul><li>The world check (validator) refuses a facing other than S, E, N or W, an unknown behaviour, and a path waypoint off</li></ul>
+<p>the map. It warns about a waypoint on ground nobody can walk on.</p>
+<p>For the map file format (<code>facing</code> and <code>move</code> on an <code>npcs</code> entry), see <code>game/core/npc_behaviour.gd</code>.</p>
+<footer>Generated from <b>Astraeth</b> (revision 8d9e813edaad) on 2026-10-31. Game facts come from the game itself; see <a href="../about/index.html">About this wiki</a>.</footer></main></div>
+<script>window.WIKI_ROOT="../";</script><script src="../search-index.js"></script><script src="../search.js"></script></body></html>
